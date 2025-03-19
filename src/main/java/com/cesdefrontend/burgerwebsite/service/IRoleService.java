@@ -7,7 +7,7 @@ import java.util.Optional;
 
 public interface IRoleService {
     List<Role> getRoles();
-    Optional<Role> geRoleById();
-    Role savRole();
-    void deletRole();
+    Optional<Role> getRoleById(Integer id);
+    Role saveRole(Role user);
+    void deleteRole(Role user);
 }
