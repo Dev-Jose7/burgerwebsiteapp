@@ -16,6 +16,11 @@ public class ProductoServiceImpl implements IProductoService {
     private ProductoRepository productoRepository;
 
     @Override
+    public Producto createProduct(Producto product) {
+        return productoRepository.save(product);
+    }
+
+    @Override
     public List<Producto> getProducts() {
         return productoRepository.findAll();
     }
@@ -26,8 +31,9 @@ public class ProductoServiceImpl implements IProductoService {
     }
 
     @Override
-    public Producto saveProduct(Producto product) {
-        return productoRepository.save(product);
+    public Producto updateProduct(Integer id, Producto producto) {
+        producto.setId(id); // Asegurarse de que se mantiene el ID del producto
+        return productoRepository.save(producto);
     }
 
     @Override

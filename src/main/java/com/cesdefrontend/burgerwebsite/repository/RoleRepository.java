@@ -3,6 +3,8 @@ package com.cesdefrontend.burgerwebsite.repository;
 import com.cesdefrontend.burgerwebsite.model.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface RoleRepository extends JpaRepository<Role, Integer> {
+import java.util.Optional;
 
+public interface RoleRepository extends JpaRepository<Role, Integer> {
+    Optional<Role> findByUsuario(String name);
 }

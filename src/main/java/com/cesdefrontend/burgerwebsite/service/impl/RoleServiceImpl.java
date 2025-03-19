@@ -16,6 +16,11 @@ public class RoleServiceImpl implements IRoleService {
     private RoleRepository roleRepository;
 
     @Override
+    public Role createRole(Role user) {
+        return roleRepository.save(user);
+    }
+
+    @Override
     public List<Role> getRoles() {
         return roleRepository.findAll();
     }
@@ -26,8 +31,14 @@ public class RoleServiceImpl implements IRoleService {
     }
 
     @Override
-    public Role saveRole(Role user) {
-        return roleRepository.save(user);
+    public Optional<Role> getRoleByUser(String user) {
+        return roleRepository.findByUsuario(user);
+    }
+
+    @Override
+    public Role updateRole(Integer id, Role role) {
+        role.setId(id);
+        return roleRepository.save(role);
     }
 
     @Override
